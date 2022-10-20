@@ -1,5 +1,7 @@
 package com.bsc.shastram.core.controller.demo;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +25,17 @@ public class DemoContoller {
 	    public ResponseEntity<String> createUser()  {
 	    	
 	    	
+	    	Date date = new Date();
+	    	System.out.println(date.toGMTString());
+	     	System.out.println(date.toLocaleString());
+	    	
+	    	
 	    	User user = new User();
-	    	user.setFirstName("Madhusudhan");
-	    	user.setEmail("hahaha@email.com");
+	    	
+	    	user.setFullName("Madhusudhan");
+	    	user.setActive(true);
+	    	user.setEmail("hahaasdha@email.com");
+	    	
 	    	user = userRepo.save(user);
 	    	user.toJsonString();
 	    	return ResponseEntity.ok(user.toJsonString());

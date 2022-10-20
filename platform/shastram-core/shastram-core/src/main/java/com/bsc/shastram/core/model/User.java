@@ -8,7 +8,7 @@ import com.bsc.shastram.commons.model.base.BaseUser;
 import lombok.Data;
 
 
-@Table(name = "suser")
+@Table(schema = "profile" , name = "user_s")
 @Entity
 @Data
 public class User extends BaseUser {

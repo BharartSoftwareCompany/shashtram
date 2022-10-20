@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -32,6 +33,10 @@ public class DateUtil {
     public static Date getCurrentDateTimeUTC()
     {
         return StringDateToDate(getUTCdatetimeAsString());
+    }
+    public static long getEPOCTime() 
+    {
+        return Instant.now().toEpochMilli();
     }
     public static Long getCurrentDateTimeUTCMilli()
     {
@@ -66,7 +71,7 @@ public class DateUtil {
 
     }
 
-    public static long  getOlderTimeStamp(int days)
+    public static long  getOlderMilliTimeStamp(int days)
     {
         DateTime datetime = new DateTime().minusDays(days);
         return datetime.toDate().getTime();

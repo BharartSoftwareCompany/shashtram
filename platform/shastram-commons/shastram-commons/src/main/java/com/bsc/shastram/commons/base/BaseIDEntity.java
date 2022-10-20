@@ -11,9 +11,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.*;
 import org.json.JSONObject;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Date;
 import java.util.UUID;
 
@@ -32,16 +34,20 @@ public class BaseIDEntity implements Serializable {
 		Date date = DateUtil.getCurrentDateTimeUTC();
 		updatedOn = date;
 		createdOn = date;
-		createdTimestamp = date.getTime();
-		updatedTimestamp = date.getTime();
+		createdTimestamp =  DateUtil.getEPOCTime();
+		updatedTimestamp = DateUtil.getEPOCTime();
 
 	}
 
 	protected String updatedBy;
+	@Column(columnDefinition = "TEXT")
+	protected String extras;
 	protected String createdBy;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
 	protected Date createdOn;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
 	protected Date updatedOn;
 	@Column(name = "ip_address")
 	protected String ipAddress;
