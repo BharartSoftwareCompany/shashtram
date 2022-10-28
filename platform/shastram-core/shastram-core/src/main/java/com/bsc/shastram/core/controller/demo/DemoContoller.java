@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bsc.shastram.commons.util.DateUtil;
 import com.bsc.shastram.core.model.User;
-import com.bsc.shastram.core.module.secretmessage.SecretMessage;
-import com.bsc.shastram.core.module.secretmessage.SecretMessageSession;
-import com.bsc.shastram.core.module.secretmessage.SecretMessageSessionRepo;
+import com.bsc.shastram.core.module.secmsg.model.SecretMessageSession;
+import com.bsc.shastram.core.module.secmsg.repo.SecretMessageRepo;
+import com.bsc.shastram.core.module.secmsg.repo.SecretMessageSessionRepo;
 import com.bsc.shastram.core.repo.UserRepo;
 
 @Controller
@@ -30,7 +30,7 @@ public class DemoContoller {
 	SecretMessageSessionRepo smsRepo;
 	
 	@Autowired
-	SecretMessage messageRepo;
+	SecretMessageRepo messageRepo;
 	
 
 	    @RequestMapping(method = RequestMethod.GET, path = "/user", consumes = MediaType.ALL_VALUE, produces = MediaType.ALL_VALUE)

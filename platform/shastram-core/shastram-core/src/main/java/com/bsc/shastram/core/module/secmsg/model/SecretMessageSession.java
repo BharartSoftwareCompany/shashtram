@@ -1,4 +1,4 @@
-package com.bsc.shastram.core.module.secretmessage;
+package com.bsc.shastram.core.module.secmsg.model;
 
 import javax.persistence.Entity;
 

@@ -1,4 +1,4 @@
-package com.bsc.shastram.core.module.secretmessage;
+package com.bsc.shastram.core.module.secmsg.model;
 
 import javax.persistence.Entity;
 
@@ -18,7 +18,7 @@ public class SecretMessage extends BaseIDEntity {
 	private static final long serialVersionUID = 1L;
 	private String sessionID;
 	private User poster;
-	String message;
+	private String message;
 	
 	
 
