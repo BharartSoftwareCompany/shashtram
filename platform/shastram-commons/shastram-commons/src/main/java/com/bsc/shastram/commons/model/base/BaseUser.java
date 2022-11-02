@@ -5,12 +5,17 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import org.springframework.stereotype.Component;
+
 import com.bsc.shastram.commons.base.BaseIDEntity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @MappedSuperclass
+@Component
 public abstract class BaseUser extends BaseIDEntity {
 
 	@Column(name = "user_type")

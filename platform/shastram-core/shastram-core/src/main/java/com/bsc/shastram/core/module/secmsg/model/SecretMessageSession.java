@@ -18,14 +18,16 @@ public class SecretMessageSession extends BaseIDEntity {
 	private static final long serialVersionUID = 1L;
 	private boolean isCreatedByRegisteredUser;
 	private User creator;
-	private String tile;
+	private String title;
 	private String description;
 	private long expiry;
 	private boolean isExpired = false;
 	private String shortCode;
+	//when false, only registered users can act on this session
 	private boolean isPublic = true;
 	private boolean isPasswordProtected = false;
 	private String passCode;
+	
 	
 	
 	

@@ -23,55 +23,55 @@ import com.bsc.shastram.core.repo.UserRepo;
 public class DemoContoller {
 	
 	
-	@Autowired
-	UserRepo userRepo;
-	
-	@Autowired
-	SecretMessageSessionRepo smsRepo;
-	
-	@Autowired
-	SecretMessageRepo messageRepo;
-	
-
-	    @RequestMapping(method = RequestMethod.GET, path = "/user", consumes = MediaType.ALL_VALUE, produces = MediaType.ALL_VALUE)
-	    public ResponseEntity<String> createUser()  {
-	    	
-	    	
-	    	Date date = new Date();
-	    	System.out.println(date.toGMTString());
-	     	System.out.println(date.toLocaleString());
-	    	
-	    	
-	    	User user = new User();
-	    	
-	    	user.setFullName("Madhusudhan");
-	    	user.setActive(true);
-	    	user.setEmail("hahaasdha@email.com");
-	    	
-	    	user = userRepo.save(user);
-	    	user.toJsonString();
-	    	return ResponseEntity.ok(user.toJsonString());
-	    	
-		  
-	  }
-	    
-	    
-
-	    @RequestMapping(method = RequestMethod.GET, path = "/session", consumes = MediaType.ALL_VALUE, produces = MediaType.ALL_VALUE)
-	    public ResponseEntity<String> createSession()  {
-	    	
-	    	
-	    	Optional<User> user = userRepo.findById(UUID.fromString("a1c5af49-806f-4a1b-921a-cc61021fadab"));
-	    	SecretMessageSession session =  new SecretMessageSession();
-	    	session.setTile("Hello" +  DateUtil.getEPOCTime());
-	    	session.setCreator(user.get());
-	    	
-	    	session=  smsRepo.save(session);
-	    	return ResponseEntity.ok(session.toJsonString());
-	    	
-	  
-	    	
-	    }
+//	@Autowired
+//	UserRepo userRepo;
+//	
+//	@Autowired
+//	SecretMessageSessionRepo smsRepo;
+//	
+//	@Autowired
+//	SecretMessageRepo messageRepo;
+//	
+//
+//	    @RequestMapping(method = RequestMethod.GET, path = "/user", consumes = MediaType.ALL_VALUE, produces = MediaType.ALL_VALUE)
+//	    public ResponseEntity<String> createUser()  {
+//	    	
+//	    	
+//	    	Date date = new Date();
+//	    	System.out.println(date.toGMTString());
+//	     	System.out.println(date.toLocaleString());
+//	    	
+//	    	
+//	    	User user = new User();
+//	    	
+//	    	user.setFullName("Madhusudhan");
+//	    	user.setActive(true);
+//	    	user.setEmail("hahaasdha@email.com");
+//	    	
+//	    	user = userRepo.save(user);
+//	    	user.toJsonString();
+//	    	return ResponseEntity.ok(user.toJsonString());
+//	    	
+//		  
+//	  }
+//	    
+//	    
+//
+//	    @RequestMapping(method = RequestMethod.GET, path = "/session", consumes = MediaType.ALL_VALUE, produces = MediaType.ALL_VALUE)
+//	    public ResponseEntity<String> createSession()  {
+//	    	
+//	    	
+//	    	Optional<User> user = userRepo.findById(UUID.fromString("a1c5af49-806f-4a1b-921a-cc61021fadab"));
+//	    	SecretMessageSession session =  new SecretMessageSession();
+//	    	session.setTile("Hello" +  DateUtil.getEPOCTime());
+//	    	session.setCreator(user.get());
+//	    	
+//	    	session=  smsRepo.save(session);
+//	    	return ResponseEntity.ok(session.toJsonString());
+//	    	
+//	  
+//	    	
+//	    }
 	    
 
 }
